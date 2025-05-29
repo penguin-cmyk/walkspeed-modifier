@@ -23,6 +23,6 @@ fn main() {
     let character = roblox_prc.read_memory::<usize>(localplayer + 0x330).unwrap();
     let humanoid = utils.find_first_child(character, "Humanoid".to_string());
 
-    roblox_prc.write_memory::<f32>(humanoid + 0x1D8, &200.0).unwrap();
-    roblox_prc.write_memory::<f32>(humanoid + 0x3B0, &200.0).unwrap();
+    roblox_prc.write_memory::<f32>(humanoid + 0x1D8, &200.0).unwrap(); // WalkSpeed
+    roblox_prc.write_memory::<f32>(humanoid + 0x3B0, &200.0).unwrap(); // WalkSpeedCheck
 }
