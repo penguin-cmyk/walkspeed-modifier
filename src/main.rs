@@ -19,8 +19,8 @@ fn main() {
     let utils = Utils::new(&roblox_prc);
     let players = utils.find_first_child(real_dm, "Players".to_string());
 
-    let localplayer = roblox_prc.read_memory::<usize>(players + 0x128).unwrap();
-    let character = roblox_prc.read_memory::<usize>(localplayer + 0x330).unwrap();
+    let localplayer = roblox_prc.read_memory::<usize>(players + 0x128).unwrap(); // 0x128: LocalPlayer
+    let character = roblox_prc.read_memory::<usize>(localplayer + 0x330).unwrap(); // 0x330: ModelInstace
     let humanoid = utils.find_first_child(character, "Humanoid".to_string());
 
     roblox_prc.write_memory::<f32>(humanoid + 0x1D8, &200.0).unwrap(); // WalkSpeed
